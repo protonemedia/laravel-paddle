@@ -65,6 +65,41 @@ class ApiTest extends TestCase
     }
 
     /** @test */
+    public function it_formats_the_uri_and_posts_the_config_with_the_payload()
+    {
+        config([
+            'paddle' => [
+                'vendor_id'        => 20,
+                'vendor_auth_code' => 30,
+            ],
+        ]);
+
+        $zttp = $this->mockZttp();
+
+        $zttp->shouldReceive('post')->withArgs(function ($url, $data) {
+            $this->assertEquals('https://vendors.paddle.com/api/2.0/product/generate_pay_link', $url);
+            $this->assertEquals([
+                'vendor_id'        => 20,
+                'vendor_auth_code' => 30,
+                'product_id'       => 10,
+            ], $data);
+
+            return true;
+        })->andReturnSelf();
+
+        $zttp->shouldReceive('isSuccess')->andReturnTrue();
+        $zttp->shouldReceive('json')->andReturn([
+            'success'  => true,
+            'response' => 'Hello!',
+        ]);
+
+        $response = (new Api)->product()->generatePayLink([
+            'product_id' => 10,
+        ])->send();
+
+    }
+
+    /** @test */
     public function it_returns_the_response_attribute_if_the_request_was_successful()
     {
         $zttp = $this->mockZttp();
