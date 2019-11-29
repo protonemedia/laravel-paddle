@@ -27,7 +27,7 @@ abstract class Event
         $value = $this->webhookData[$key];
 
         if ($key === 'passthrough') {
-            $result = json_decode($value);
+            $result = json_decode($value, true);
 
             if (json_last_error() === JSON_ERROR_NONE) {
                 return $result;
