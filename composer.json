@@ -48,7 +48,7 @@
                 "ProtoneMedia\\LaravelPaddle\\LaravelPaddleServiceProvider"
             ],
             "aliases": {
-                "LaravelPaddle": "ProtoneMedia\\LaravelPaddle\\LaravelPaddleFacade"
+                "Paddle": "ProtoneMedia\\LaravelPaddle\\Paddle"
             }
         }
     }
