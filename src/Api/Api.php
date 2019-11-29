@@ -2,8 +2,11 @@
 
 namespace ProtoneMedia\LaravelPaddle\Api;
 
-class Paddle
+class Api
 {
+    /**
+     * @return \ProtoneMedia\LaravelPaddle\Api\Product
+     */
     public function product()
     {
         return new Product;

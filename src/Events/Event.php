@@ -9,13 +9,31 @@ abstract class Event
     /**
      * @var array
      */
-    protected $data;
+    protected $webhookData;
 
-    public function __construct(array $data)
+    public function __construct(array $webhookData)
     {
-        $this->data = $data;
+        $this->webhookData = $webhookData;
     }
 
+    /**
+     * Getter for the webhook data.
+     *
+     * @param  string $key
+     * @return mixed
+     */
+    public function __get(string $key)
+    {
+        return $this->webhookData[$key];
+    }
+
+    /**
+     * Generates the event class name with the 'alert_name' attribute from
+     * the data and fires the event with the data.
+     *
+     * @param  array  $data
+     * @return void
+     */
     public static function fire(array $data)
     {
         $event = Str::studly($data['alert_name']);

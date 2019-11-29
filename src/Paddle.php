@@ -1,6 +1,6 @@
 <?php
 
-namespace Protonemedia\LaravelPaddle;
+namespace ProtoneMedia\LaravelPaddle;
 
 use Illuminate\Support\Facades\Facade;
 

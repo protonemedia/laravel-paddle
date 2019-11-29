@@ -4,18 +4,18 @@ namespace ProtoneMedia\LaravelPaddle\Api;
 
 class Subscription
 {
-    public function plans()
+    public function plans(array $data = [])
     {
-        return new Request('subscription/plans');
+        return new Request('subscription/plans', $data);
     }
 
-    public function users()
+    public function users(array $data = [])
     {
-        return new Request('subscription/users');
+        return new Request('subscription/users', $data);
     }
 
-    public function payments()
+    public function payments(array $data = [])
     {
-        return new Request('subscription/payments');
+        return new Request('subscription/payments', $data);
     }
 }

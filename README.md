@@ -18,13 +18,25 @@ composer require protonemedia/laravel-paddle
 ## Usage
 
 ``` php
-// Usage description here
+// Fluent:
 
 $paddlePayLink = Paddle::product()
     ->generatePayLink()
     ->productId($paddlePlanId)
     ->customerEmail($team->owner->email)
     ->passthrough(['team_id' => $team->id])
+    ->send();
+
+// Array with payload:
+
+$payload = [
+    'product_id' => $paddlePlanId,
+    'customer_email' => $team->owner->email,
+    'passthrough' => ['team_id' => $team->id],
+];
+
+$paddlePayLink = Paddle::product()
+    ->generatePayLink($payload)
     ->send();
 
 return Redirect::to($paddlePayLink['url']);
