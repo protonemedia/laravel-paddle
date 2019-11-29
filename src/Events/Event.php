@@ -24,7 +24,17 @@ abstract class Event
      */
     public function __get(string $key)
     {
-        return $this->webhookData[$key];
+        $value = $this->webhookData[$key];
+
+        if ($key === 'passthrough') {
+            $result = json_decode($value);
+
+            if (json_last_error() === JSON_ERROR_NONE) {
+                return $result;
+            }
+        }
+
+        return $value;
     }
 
     /**
