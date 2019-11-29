@@ -45,6 +45,15 @@ return Redirect::to($paddlePayLink['url']);
 
 ## Webhooks and Laravel Events
 
+## Blade directive
+```php
+    <body>
+        {{-- your app --}}
+
+        @paddle
+    </body>
+```
+
 ### Testing
 
 ``` bash
