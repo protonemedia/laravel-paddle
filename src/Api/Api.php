@@ -11,4 +11,12 @@ class Api
     {
         return new Product;
     }
+
+    /**
+     * @return \ProtoneMedia\LaravelPaddle\Api\Subscription
+     */
+    public function subscription()
+    {
+        return new Subscription;
+    }
 }

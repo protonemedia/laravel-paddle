@@ -2,8 +2,6 @@
 
 namespace ProtoneMedia\LaravelPaddle\Api;
 
-use Zttp\PendingZttpRequest;
-
 trait InteractsWithPaddleApi
 {
     private function uri(string $uri): string
@@ -13,7 +11,7 @@ trait InteractsWithPaddleApi
 
     private function post(string $uri, array $data = [])
     {
-        $response = app(PendingZttpRequest::class)
+        $response = app('laravel-paddle.http')
             ->asFormParams()
             ->post($this->uri($uri), [
                 'vendor_id'        => config('paddle.vendor_id'),
@@ -21,7 +19,7 @@ trait InteractsWithPaddleApi
             ] + $data);
 
         if (!$response->isSuccess()) {
-            throw new PaddleApiException;
+            throw PaddleApiException::unsuccessfulStatus($response->status());
         }
 
         $json = $response->json();

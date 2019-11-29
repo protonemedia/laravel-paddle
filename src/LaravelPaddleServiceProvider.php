@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use ProtoneMedia\LaravelPaddle\Api\Api;
 use ProtoneMedia\LaravelPaddle\Http\WebhookController;
+use Zttp\PendingZttpRequest;
 
 class LaravelPaddleServiceProvider extends ServiceProvider
 {
@@ -41,6 +42,10 @@ class LaravelPaddleServiceProvider extends ServiceProvider
 
         $this->app->singleton('laravel-paddle', function () {
             return new Api;
+        });
+
+        $this->app->singleton('laravel-paddle.http', function () {
+            return new PendingZttpRequest;
         });
 
         Route::post(config('paddle.webhook_uri'), WebhookController::class);
