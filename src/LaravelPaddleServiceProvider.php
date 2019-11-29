@@ -4,7 +4,7 @@ namespace ProtoneMedia\LaravelPaddle;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
-use PHPUnit\Framework\MockObject\Api;
+use ProtoneMedia\LaravelPaddle\Api\Api;
 use ProtoneMedia\LaravelPaddle\Http\WebhookController;
 
 class LaravelPaddleServiceProvider extends ServiceProvider
