@@ -46,12 +46,15 @@ return Redirect::to($paddlePayLink['url']);
 ## Webhooks and Laravel Events
 
 ## Blade directive
-```php
-    <body>
-        {{-- your app --}}
 
-        @paddle
-    </body>
+This directive imports the Paddle JavaScript library and configures it with your Vendor ID.
+
+```php
+<body>
+    {{-- your app --}}
+
+    @paddle
+</body>
 ```
 
 ### Testing
