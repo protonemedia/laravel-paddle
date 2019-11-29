@@ -47,7 +47,7 @@ return Redirect::to($paddlePayLink['url']);
 
 Configure your webhook URI in the `paddle.php` config file and update your settings here: https://vendors.paddle.com/alerts-webhooks.
 
-Every webhook will be mapped to an Event, for example when the [Subscription Created](https://developer.paddle.com/webhook-reference/subscription-alerts/subscription-created) webhook is called, the request is verified and a `SubscriptionCreated` event will be fired. Each event contains the payload of the webhook.
+Every webhook will be mapped to an Event, for example when the [Subscription Created](https://developer.paddle.com/webhook-reference/subscription-alerts/subscription-created) webhook is called, the request is verified and a `SubscriptionCreated` event will be fired.
 
 Events:
 * `ProtoneMedia\LaravelPaddle\NewAudienceMember`
@@ -57,6 +57,26 @@ Events:
 * `ProtoneMedia\LaravelPaddle\SubscriptionPaymentRefunded`
 * `ProtoneMedia\LaravelPaddle\SubscriptionPaymentSucceeded`
 * `ProtoneMedia\LaravelPaddle\SubscriptionUpdated`
+
+Each event contains the payload of the webhook. When you register a listener to handle the event, the payload is easily accessible:
+
+```php
+<?php
+
+namespace App\Listeners;
+
+use ProtoneMedia\LaravelPaddle\Events\SubscriptionCreated;
+
+class CreateSubscriptionModel
+{
+    public function handle(SubscriptionCreated $event)
+    {
+        $status = $event->status;
+
+        $nextBillDate = $event->next_bill_date;
+    }
+}
+```
 
 ## Blade directive
 
