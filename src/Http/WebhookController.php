@@ -33,7 +33,7 @@ class WebhookController
         $verified = openssl_verify(
             serialize($data),
             base64_decode($encodedSignature),
-            openssl_get_publickey(config('laravel-paddle.public_key')),
+            openssl_get_publickey(config('paddle.public_key')),
             OPENSSL_ALGO_SHA1
         );
 

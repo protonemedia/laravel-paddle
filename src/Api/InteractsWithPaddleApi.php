@@ -16,8 +16,8 @@ trait InteractsWithPaddleApi
         $response = app(PendingZttpRequest::class)
             ->asFormParams()
             ->post($this->uri($uri), [
-                'vendor_id'        => config('laravel-paddle.vendor_id'),
-                'vendor_auth_code' => config('laravel-paddle.vendor_auth_code'),
+                'vendor_id'        => config('paddle.vendor_id'),
+                'vendor_auth_code' => config('paddle.vendor_auth_code'),
             ] + $data);
 
         if (!$response->isSuccess()) {
