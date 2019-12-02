@@ -27,7 +27,7 @@ composer require protonemedia/laravel-paddle
 Publish the config and view files:
 
 ```bash
-php artisan vendor:publish --provider="ProtoneMedia\LaravelPaddle\LaravelPaddleServiceProvider"
+php artisan vendor:publish --provider="ProtoneMedia\LaravelPaddle\PaddleServiceProvider"
 ```
 
 Set your [Vendor ID and Code](https://vendors.paddle.com/authentication) and the [Public Key](https://vendors.paddle.com/public-key) settings in your `.env` file or in the `config/paddle.php` file. The Public Key is used to verify incoming webhooks from Paddle.

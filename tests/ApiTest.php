@@ -6,14 +6,14 @@ use Mockery;
 use Orchestra\Testbench\TestCase;
 use ProtoneMedia\LaravelPaddle\Api\Api;
 use ProtoneMedia\LaravelPaddle\Api\PaddleApiException;
-use ProtoneMedia\LaravelPaddle\LaravelPaddleServiceProvider;
+use ProtoneMedia\LaravelPaddle\PaddleServiceProvider;
 use Zttp\PendingZttpRequest;
 
 class ApiTest extends TestCase
 {
     protected function getPackageProviders($app)
     {
-        return [LaravelPaddleServiceProvider::class];
+        return [PaddleServiceProvider::class];
     }
 
     private function mockZttp(): PendingZttpRequest

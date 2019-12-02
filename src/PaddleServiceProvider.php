@@ -9,7 +9,7 @@ use ProtoneMedia\LaravelPaddle\Api\Api;
 use ProtoneMedia\LaravelPaddle\Http\WebhookController;
 use Zttp\PendingZttpRequest;
 
-class LaravelPaddleServiceProvider extends ServiceProvider
+class PaddleServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.

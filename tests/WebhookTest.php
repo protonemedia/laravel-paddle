@@ -5,13 +5,13 @@ namespace Protonemedia\LaravelPaddle\Tests;
 use Illuminate\Support\Facades\Event;
 use Orchestra\Testbench\TestCase;
 use ProtoneMedia\LaravelPaddle\Events\SubscriptionCreated;
-use ProtoneMedia\LaravelPaddle\LaravelPaddleServiceProvider;
+use ProtoneMedia\LaravelPaddle\PaddleServiceProvider;
 
 class WebhookTest extends TestCase
 {
     protected function getPackageProviders($app)
     {
-        return [LaravelPaddleServiceProvider::class];
+        return [PaddleServiceProvider::class];
     }
 
     private static function generatePrivateKey()

@@ -45,7 +45,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "ProtoneMedia\\LaravelPaddle\\LaravelPaddleServiceProvider"
+                "ProtoneMedia\\LaravelPaddle\\PaddleServiceProvider"
             ],
             "aliases": {
                 "Paddle": "ProtoneMedia\\LaravelPaddle\\Paddle"
