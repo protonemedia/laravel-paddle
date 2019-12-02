@@ -55,7 +55,7 @@ class WebhookController
 
         $this->verifySignature($request->input($signatureKey), $data);
 
-        Log::info('Paddle webhook', $data);
+        Log::info('Paddle webhook', $request->all());
 
         Event::fire($data);
     }

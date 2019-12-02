@@ -6,7 +6,10 @@ use Illuminate\Support\Str;
 
 class Request
 {
-    use InteractsWithPaddleApi;
+    /**
+     * Paddle API Endpoint.
+     */
+    const API_ENDPOINT = "https://vendors.paddle.com/api/2.0/";
 
     /**
      * @var string
@@ -32,15 +35,42 @@ class Request
     }
 
     /**
+     * Alias for post, could be used in the future to make GET requests.
+     */
+    public function send()
+    {
+        return $this->post();
+    }
+
+    /**
      * Posts the data payload to the uri and returns to decoded response.
      *
      * @return mixed
      *
      * @throws \ProtoneMedia\LaravelPaddle\Api\PaddleApiException
      */
-    public function send()
+    private function post()
     {
-        return $this->post($this->uri, $this->getData());
+        $url = static::API_ENDPOINT . $this->uri;
+
+        $response = app('laravel-paddle.http')
+            ->asFormParams()
+            ->post($url, [
+                'vendor_id'        => config('paddle.vendor_id'),
+                'vendor_auth_code' => config('paddle.vendor_auth_code'),
+            ] + $this->getData());
+
+        if (!$response->isSuccess()) {
+            throw PaddleApiException::unsuccessfulStatus($response->status());
+        }
+
+        $json = $response->json();
+
+        if ($json['success'] ?? null) {
+            return $json['response'];
+        }
+
+        throw PaddleApiException::fromResponse($json);
     }
 
     /**

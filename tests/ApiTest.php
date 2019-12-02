@@ -36,7 +36,7 @@ class ApiTest extends TestCase
         $zttp->shouldReceive('status')->andReturn(500);
 
         try {
-            $request = (new Api)->subscription()->plans()->send();
+            $request = (new Api)->subscription()->listPlans()->send();
         } catch (PaddleApiException $exception) {
             return $this->assertEquals("Response with status code 500", $exception->getMessage());
         }
@@ -56,7 +56,7 @@ class ApiTest extends TestCase
         ]);
 
         try {
-            $request = (new Api)->subscription()->plans()->send();
+            $request = (new Api)->subscription()->listPlans()->send();
         } catch (PaddleApiException $exception) {
             return $this->assertEquals("[1336] Whoops!", $exception->getMessage());
         }
@@ -110,7 +110,7 @@ class ApiTest extends TestCase
             'response' => 'Hello!',
         ]);
 
-        $response = (new Api)->subscription()->plans()->send();
+        $response = (new Api)->subscription()->listPlans()->send();
 
         $this->assertEquals('Hello!', $response);
     }

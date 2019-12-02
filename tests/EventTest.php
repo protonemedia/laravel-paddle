@@ -7,7 +7,7 @@ use Orchestra\Testbench\TestCase;
 use ProtoneMedia\LaravelPaddle\Events\Event;
 use ProtoneMedia\LaravelPaddle\Events\SubscriptionCreated;
 
-class EvenTest extends TestCase
+class EventTest extends TestCase
 {
     /** @test */
     public function it_can_have_payload_that_is_accessible()
