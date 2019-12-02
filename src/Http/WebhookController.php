@@ -4,7 +4,6 @@ namespace ProtoneMedia\LaravelPaddle\Http;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use ProtoneMedia\LaravelPaddle\Events\Event;
 
@@ -54,8 +53,6 @@ class WebhookController
         $data = Arr::except($request->all(), $signatureKey = 'p_signature');
 
         $this->verifySignature($request->input($signatureKey), $data);
-
-        Log::info('Paddle webhook', $request->all());
 
         Event::fire($data);
     }
