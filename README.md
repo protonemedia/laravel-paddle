@@ -71,7 +71,7 @@ return Redirect::to($paddleResponse['url']);
 
 ```php
 // alerts
-Paddle::alert()->getWehbookHistory();
+Paddle::alert()->getWebhookHistory();
 
 // checkouts
 Paddle::checkout()->getOrderDetails();
