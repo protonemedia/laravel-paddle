@@ -4,27 +4,16 @@ namespace ProtoneMedia\LaravelPaddle\Api;
 
 class Subscription
 {
-    public function listPlans(array $data = [])
+    use HandlesPlans;
+    use HandlesSubscriptionUsers;
+    use HandlesModifiers;
+    use HandlesPayments;
+
+    /**
+     * https://developer.paddle.com/api-reference/subscription-api/one-off-charges/createcharge
+     */
+    public function createOneOffCharge($id, array $data = [])
     {
-        return new Request('subscription/plans', $data);
-    }
-
-    //
-
-    public function listUsers(array $data = [])
-    {
-        return new Request('subscription/users', $data);
-    }
-
-    public function updateSubscription(array $data = [])
-    {
-        return new Request('subscription/users/update', $data);
-    }
-
-    //
-
-    public function listPayments(array $data = [])
-    {
-        return new Request('subscription/payments', $data);
+        return new Request(sprintf('/2.0/subscription/%s/charge', $id), $data);
     }
 }

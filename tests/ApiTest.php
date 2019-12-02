@@ -114,4 +114,42 @@ class ApiTest extends TestCase
 
         $this->assertEquals('Hello!', $response);
     }
+
+    /** @test */
+    public function it_can_make_a_get_request()
+    {
+        $zttp = $this->mockZttp();
+        $zttp->shouldReceive('get')->withArgs(function ($url, $query) {
+            $this->assertFalse(array_key_exists('vendor_auth_code', $query));
+
+            return true;
+        })->andReturnSelf();
+        $zttp->shouldReceive('isSuccess')->andReturnTrue();
+        $zttp->shouldReceive('json')->andReturn([
+            'success'  => true,
+            'response' => 'Hello!',
+        ]);
+
+        $response = (new Api)->checkout()->getUserHistory([
+            'email' => 'test@example',
+        ])->send();
+
+        $this->assertEquals('Hello!', $response);
+    }
+
+    /** @test */
+    public function it_can_list_transactions_for_an_entity()
+    {
+        $request = (new Api)->product()->listTransactions('user', 123);
+
+        $this->assertEquals('https://vendors.paddle.com/api/2.0/user/123/transactions', $request->url());
+    }
+
+    /** @test */
+    public function it_can_create_an_one_off_chrage()
+    {
+        $request = (new Api)->subscription()->createOneOffCharge('123');
+
+        $this->assertEquals('https://vendors.paddle.com/api/2.0/subscription/123/charge', $request->url());
+    }
 }

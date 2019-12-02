@@ -2,8 +2,10 @@
 
 namespace Protonemedia\LaravelPaddle\Tests;
 
-use PHPUnit\Framework\TestCase;
+use Orchestra\Testbench\TestCase;
 use ProtoneMedia\LaravelPaddle\Api\Api;
+use ProtoneMedia\LaravelPaddle\Api\InvalidDataException;
+use ProtoneMedia\LaravelPaddle\Api\Request;
 
 class RequestTest extends TestCase
 {
@@ -37,5 +39,34 @@ class RequestTest extends TestCase
             'customer_email' => 'test@example.com',
             'passthrough'    => json_encode(['team_id' => 20]),
         ], $request->getData());
+    }
+
+    /** @test */
+    public function it_validates_the_given_data()
+    {
+        $request = (new Api)->checkout()->getUserHistory([
+            'email'      => 'test@example.com',
+            'product_id' => '123',
+        ]);
+
+        $this->assertInstanceOf(Request::class, $request);
+    }
+
+    /** @test */
+    public function it_throws_an_exception_if_the_given_data_is_invalid()
+    {
+        try {
+            $request = (new Api)->checkout()->getUserHistory([
+                'email'      => 'nope',
+                'product_id' => 'abc',
+            ])->send();
+        } catch (InvalidDataException $exception) {
+            return $this->assertEquals(
+                ['email', 'product_id'],
+                $exception->getMessages()->keys()
+            );
+        }
+
+        $this->fail('Should have thrown InvalidDataException');
     }
 }
