@@ -19,7 +19,7 @@ class WebhookController
      *
      * @throws \Symfony\Component\HttpKernel\Exception\HttpException
      */
-    private function verifySignature(string $encodedSignature, array $data)
+    private function verifySignature(string $encodedSignature = null, array $data)
     {
         ksort($data);
 

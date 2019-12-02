@@ -1,8 +1,8 @@
 # Laravel Paddle
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/protonemedia/laravel-paddle.svg?style=flat-square)](https://packagist.org/packages/protonemedia/laravel-paddle)
-[![Build Status](https://img.shields.io/travis/protonemedia/laravel-paddle/master.svg?style=flat-square)](https://travis-ci.org/protonemedia/laravel-paddle)
-[![Quality Score](https://img.shields.io/scrutinizer/g/protonemedia/laravel-paddle.svg?style=flat-square)](https://scrutinizer-ci.com/g/protonemedia/laravel-paddle)
+[![Build Status](https://img.shields.io/travis/pascalbaljetmedia/laravel-paddle/master.svg?style=flat-square)](https://travis-ci.org/pascalbaljetmedia/laravel-paddle)
+[![Quality Score](https://img.shields.io/scrutinizer/g/pascalbaljetmedia/laravel-paddle.svg?style=flat-square)](https://scrutinizer-ci.com/g/pascalbaljetmedia/laravel-paddle)
 [![Total Downloads](https://img.shields.io/packagist/dt/protonemedia/laravel-paddle.svg?style=flat-square)](https://packagist.org/packages/protonemedia/laravel-paddle)
 
 ## Installation
@@ -105,13 +105,24 @@ You can configure your webhook URI in the `paddle.php` config file. Update your 
 Every webhook will be mapped to an Event and contains the payload of the webhook. For example when the [Subscription Created](https://developer.paddle.com/webhook-reference/subscription-alerts/subscription-created) webhook is called, the request is verified and a `SubscriptionCreated` event will be fired.
 
 Events:
+* `ProtoneMedia\LaravelPaddle\HighRiskTransactionCreated`
+* `ProtoneMedia\LaravelPaddle\HighRiskTransactionUpdated`
+* `ProtoneMedia\LaravelPaddle\LockerProcessed`
 * `ProtoneMedia\LaravelPaddle\NewAudienceMember`
+* `ProtoneMedia\LaravelPaddle\PaymentDisputeClosed`
+* `ProtoneMedia\LaravelPaddle\PaymentDisputeCreated`
+* `ProtoneMedia\LaravelPaddle\PaymentRefunded`
+* `ProtoneMedia\LaravelPaddle\PaymentSucceeded`
 * `ProtoneMedia\LaravelPaddle\SubscriptionCancelled`
 * `ProtoneMedia\LaravelPaddle\SubscriptionCreated`
 * `ProtoneMedia\LaravelPaddle\SubscriptionPaymentFailed`
 * `ProtoneMedia\LaravelPaddle\SubscriptionPaymentRefunded`
 * `ProtoneMedia\LaravelPaddle\SubscriptionPaymentSucceeded`
 * `ProtoneMedia\LaravelPaddle\SubscriptionUpdated`
+* `ProtoneMedia\LaravelPaddle\TransferCreated`
+* `ProtoneMedia\LaravelPaddle\TransferPaid`
+* `ProtoneMedia\LaravelPaddle\UpdateAudienceMember`
+
 
 When you register a listener to handle the event, the payload is easily accessible:
 
