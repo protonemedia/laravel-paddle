@@ -33,7 +33,7 @@ PADDLE_PUBLIC_KEY="-----BEGIN PUBLIC KEY-----
 
 ## Usage
 
-The API calls are available with the `Paddle` facade. Check out the [the documentation](https://developer.paddle.com/api-reference/intro) to learn all about the Paddle API. You can build your API calls fluently and you could simply pass an array. The data will be partly validated, this might throw an `InvalidDataException` if your data is invalid. Whenever an API call fails it will throw a `PaddleApiException`.
+The API calls are available with the `Paddle` facade. Check out the [the documentation](https://developer.paddle.com/api-reference/intro) to learn all about the Paddle API. You can build your API calls fluently or you could simply pass an array which holds the data. This package has some basic validation rules for the given data and this might result in an `InvalidDataException` if your data is invalid. Whenever an API call fails it will throw a `PaddleApiException`.
 
 ``` php
 // Fluent:
