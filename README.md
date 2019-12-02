@@ -15,6 +15,22 @@ composer require protonemedia/laravel-paddle
 
 ## Configuration
 
+Publish the config and view files:
+
+```bash
+php artisan vendor:publish --provider="ProtoneMedia\LaravelPaddle\LaravelPaddleServiceProvider"
+```
+
+Set the vendor settings in your `.env` file:
+
+```bash
+PADDLE_VENDOR_ID=123
+PADDLE_VENDOR_AUTH_CODE=456
+PADDLE_PUBLIC_KEY="-----BEGIN PUBLIC KEY-----
+...
+-----END PUBLIC KEY-----"
+```
+
 ## Usage
 
 ``` php
@@ -74,6 +90,10 @@ class CreateSubscriptionModel
         $status = $event->status;
 
         $nextBillDate = $event->next_bill_date;
+
+        // or
+
+        $webhookData = $event->all();
     }
 }
 ```

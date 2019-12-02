@@ -17,6 +17,16 @@ abstract class Event
     }
 
     /**
+     * Getter for all data.
+     *
+     * @return array
+     */
+    public function all(): array
+    {
+        return $this->webhookData;
+    }
+
+    /**
      * Getter for the webhook data.
      *
      * @param  string $key
