@@ -21,7 +21,7 @@ Publish the config and view files:
 php artisan vendor:publish --provider="ProtoneMedia\LaravelPaddle\LaravelPaddleServiceProvider"
 ```
 
-Set the vendor settings in your `.env` file:
+Set your [Vendor ID and Code](https://vendors.paddle.com/authentication) and the [Public Key](https://vendors.paddle.com/public-key) settings in your `.env` file or in the `config/paddle.php` file. The Public Key is used to verify incoming webhooks from Paddle.
 
 ```bash
 PADDLE_VENDOR_ID=123
@@ -33,9 +33,11 @@ PADDLE_PUBLIC_KEY="-----BEGIN PUBLIC KEY-----
 
 ## Usage
 
+The API calls are available with the `Paddle` facade. Check out the [the documentation](https://developer.paddle.com/api-reference/intro) to learn all about the Paddle API. You can build your API calls fluently and you could simply pass an array. The data will be partly validated, this might throw an `InvalidDataException` if your data is invalid. Whenever an API call fails it will throw a `PaddleApiException`.
+
 ``` php
 // Fluent:
-$paddlePayLink = Paddle::product()
+$paddleResponse = Paddle::product()
     ->generatePayLink()
     ->productId($paddlePlanId)
     ->customerEmail($team->owner->email)
@@ -49,11 +51,11 @@ $payload = [
     'passthrough' => ['team_id' => $team->id],
 ];
 
-$paddlePayLink = Paddle::product()
+$paddleResponse = Paddle::product()
     ->generatePayLink($payload)
     ->send();
 
-return Redirect::to($paddlePayLink['url']);
+return Redirect::to($paddleResponse['url']);
 ```
 
 ## Available API calls
@@ -98,9 +100,9 @@ Paddle::subscription()->createOneOffCharge();
 
 ## Webhooks and Laravel Events
 
-Configure your webhook URI in the `paddle.php` config file and update your settings here: https://vendors.paddle.com/alerts-webhooks.
+You can configure your webhook URI in the `paddle.php` config file. Update your [webhook settings](https://vendors.paddle.com/alerts-webhooks) at Paddle accordingly. By default the URI is `paddle/webhook`. This means that the webhook calls will be posted to `https://your-domain.com/paddle/webhook`.
 
-Every webhook will be mapped to an Event, for example when the [Subscription Created](https://developer.paddle.com/webhook-reference/subscription-alerts/subscription-created) webhook is called, the request is verified and a `SubscriptionCreated` event will be fired.
+Every webhook will be mapped to an Event and contains the payload of the webhook. For example when the [Subscription Created](https://developer.paddle.com/webhook-reference/subscription-alerts/subscription-created) webhook is called, the request is verified and a `SubscriptionCreated` event will be fired.
 
 Events:
 * `ProtoneMedia\LaravelPaddle\NewAudienceMember`
@@ -111,7 +113,7 @@ Events:
 * `ProtoneMedia\LaravelPaddle\SubscriptionPaymentSucceeded`
 * `ProtoneMedia\LaravelPaddle\SubscriptionUpdated`
 
-Each event contains the payload of the webhook. When you register a listener to handle the event, the payload is easily accessible:
+When you register a listener to handle the event, the payload is easily accessible:
 
 ```php
 <?php
