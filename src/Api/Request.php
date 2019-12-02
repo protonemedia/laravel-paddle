@@ -56,14 +56,6 @@ class Request
     }
 
     /**
-     * Alias for post, could be used in the future to make GET requests.
-     */
-    public function send()
-    {
-        return $this->post();
-    }
-
-    /**
      * Formats the URL to send the request to.
      *
      * @return string
@@ -93,13 +85,13 @@ class Request
     }
 
     /**
-     * Posts the data payload to the uri and returns to decoded response.
+     * Sends the data payload to the uri and returns to decoded response.
      *
      * @return mixed
      *
      * @throws \ProtoneMedia\LaravelPaddle\Api\PaddleApiException
      */
-    private function post()
+    public function send()
     {
         $this->validateData();
 

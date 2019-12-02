@@ -4,7 +4,6 @@ namespace ProtoneMedia\LaravelPaddle\Http;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
-use Illuminate\Support\Str;
 use ProtoneMedia\LaravelPaddle\Events\Event;
 
 class WebhookController
