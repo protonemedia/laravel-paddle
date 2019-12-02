@@ -5,6 +5,14 @@ namespace ProtoneMedia\LaravelPaddle\Api;
 trait HandlesModifiers
 {
     /**
+     * https://developer.paddle.com/api-reference/subscription-api/modifiers/listmodifiers
+     */
+    public function listModifiers(array $data = [])
+    {
+        return new Request('/2.0/subscription/modifiers', $data);
+    }
+
+    /**
      * https://developer.paddle.com/api-reference/subscription-api/modifiers/createmodifier
      */
     public function createModifier(array $data = [])
@@ -23,13 +31,5 @@ trait HandlesModifiers
         return new Request('/2.0/subscription/modifiers/delete', $data, [
             'modifier_id' => 'required',
         ]);
-    }
-
-    /**
-     * https://developer.paddle.com/api-reference/subscription-api/modifiers/listmodifiers
-     */
-    public function listModifiers(array $data = [])
-    {
-        return new Request('/2.0/subscription/modifiers', $data);
     }
 }

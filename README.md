@@ -35,7 +35,6 @@ PADDLE_PUBLIC_KEY="-----BEGIN PUBLIC KEY-----
 
 ``` php
 // Fluent:
-
 $paddlePayLink = Paddle::product()
     ->generatePayLink()
     ->productId($paddlePlanId)
@@ -44,7 +43,6 @@ $paddlePayLink = Paddle::product()
     ->send();
 
 // Array with payload:
-
 $payload = [
     'product_id' => $paddlePlanId,
     'customer_email' => $team->owner->email,
@@ -56,7 +54,46 @@ $paddlePayLink = Paddle::product()
     ->send();
 
 return Redirect::to($paddlePayLink['url']);
+```
 
+## Available API calls
+
+```php
+// alerts
+Paddle::alert()->getWehbookHistory();
+
+// checkouts
+Paddle::checkout()->getOrderDetails();
+Paddle::checkout()->getUserHistory();
+Paddle::checkout()->getPrices();
+
+// products
+Paddle::product()->listCoupons();
+Paddle::product()->createCoupon();
+Paddle::product()->updateCoupon();
+Paddle::product()->deleteCoupon();
+
+Paddle::product()->listProducts();
+Paddle::product()->generateLicense();
+Paddle::product()->generatePayLink();
+Paddle::product()->listTransactions();
+
+// subscriptions
+Paddle::subscription()->listPlans();
+Paddle::subscription()->createPlan();
+
+Paddle::subscription()->listUsers();
+Paddle::subscription()->updateUser();
+Paddle::subscription()->previewUpdate();
+Paddle::subscription()->cancelUser();
+
+Paddle::subscription()->listModifiers();
+Paddle::subscription()->createModifier();
+Paddle::subscription()->deleteModifier();
+
+Paddle::subscription()->listPayments();
+Paddle::subscription()->reschedulePayment();
+Paddle::subscription()->createOneOffCharge();
 ```
 
 ## Webhooks and Laravel Events
