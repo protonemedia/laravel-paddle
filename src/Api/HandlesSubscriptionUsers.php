@@ -10,7 +10,7 @@ trait HandlesSubscriptionUsers
     public function listUsers(array $data = [])
     {
         return new Request('/2.0/subscription/users', $data, [
-            'state' => 'required|in:active,past_due,trialling,deleted,paused',
+            'state' => 'in:active,past_due,trialling,deleted,paused',
         ]);
     }
 
