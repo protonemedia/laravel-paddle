@@ -5,7 +5,7 @@
 [![Quality Score](https://img.shields.io/scrutinizer/g/pascalbaljetmedia/laravel-paddle.svg?style=flat-square)](https://scrutinizer-ci.com/g/pascalbaljetmedia/laravel-paddle)
 [![Total Downloads](https://img.shields.io/packagist/dt/protonemedia/laravel-paddle.svg?style=flat-square)](https://packagist.org/packages/protonemedia/laravel-paddle)
 
-This package provides an integration with [Paddle.com](https://paddle.com) for Laravel 5.8 and higher 6.0.
+This package provides an integration with [Paddle.com](https://paddle.com) for Laravel 5.8 and higher.
 
 ## Features
 * Super easy wrapper around the [Paddle.com API](https://developer.paddle.com/api-reference/intro)
