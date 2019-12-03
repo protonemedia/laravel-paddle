@@ -87,7 +87,7 @@ Paddle::product()->deleteCoupon();
 Paddle::product()->listProducts();
 Paddle::product()->generateLicense();
 Paddle::product()->generatePayLink();
-Paddle::product()->listTransactions();
+Paddle::product()->listTransactions($entity, $id);
 
 // subscriptions
 Paddle::subscription()->listPlans();
@@ -104,7 +104,7 @@ Paddle::subscription()->deleteModifier();
 
 Paddle::subscription()->listPayments();
 Paddle::subscription()->reschedulePayment();
-Paddle::subscription()->createOneOffCharge();
+Paddle::subscription()->createOneOffCharge($subscriptionId);
 ```
 
 ## Webhooks and Laravel Events

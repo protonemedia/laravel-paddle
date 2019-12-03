@@ -1,6 +1,6 @@
 <?php
 
-namespace Protonemedia\LaravelPaddle\Tests;
+namespace ProtoneMedia\LaravelPaddle\Tests;
 
 use Illuminate\Support\Facades\Event as EventFacade;
 use Orchestra\Testbench\TestCase;

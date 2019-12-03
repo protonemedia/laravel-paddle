@@ -5,7 +5,7 @@ namespace ProtoneMedia\LaravelPaddle;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \Protonemedia\LaravelPaddle\Skeleton\SkeletonClass
+ * @see \ProtoneMedia\LaravelPaddle\Api\Api
  */
 class Paddle extends Facade
 {

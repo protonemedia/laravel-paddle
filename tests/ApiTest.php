@@ -1,6 +1,6 @@
 <?php
 
-namespace Protonemedia\LaravelPaddle\Tests;
+namespace ProtoneMedia\LaravelPaddle\Tests;
 
 use Mockery;
 use Orchestra\Testbench\TestCase;

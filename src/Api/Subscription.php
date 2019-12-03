@@ -12,8 +12,8 @@ class Subscription
     /**
      * https://developer.paddle.com/api-reference/subscription-api/one-off-charges/createcharge
      */
-    public function createOneOffCharge($id, array $data = [])
+    public function createOneOffCharge($subscriptionId, array $data = [])
     {
-        return new Request(sprintf('/2.0/subscription/%s/charge', $id), $data);
+        return new Request(sprintf('/2.0/subscription/%s/charge', $subscriptionId), $data);
     }
 }
