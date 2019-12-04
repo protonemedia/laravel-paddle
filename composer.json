@@ -17,7 +17,9 @@
     ],
     "require": {
         "php": "^7.2",
+        "ext-openssl": "*",
         "illuminate/support": "5.8.*|^6.0",
+        "illuminate/validation": "5.8.*|^6.0",
         "egulias/email-validator": "^2.1.10",
         "kitetail/zttp": "^0.6.0"
     },
