@@ -5,7 +5,7 @@
 [![Quality Score](https://img.shields.io/scrutinizer/g/pascalbaljetmedia/laravel-paddle.svg?style=flat-square)](https://scrutinizer-ci.com/g/pascalbaljetmedia/laravel-paddle)
 [![Total Downloads](https://img.shields.io/packagist/dt/protonemedia/laravel-paddle.svg?style=flat-square)](https://packagist.org/packages/protonemedia/laravel-paddle)
 
-This package provides an integration with [Paddle.com](https://paddle.com) for Laravel 5.8 and higher.
+This package provides an integration with [Paddle.com](https://paddle.com) for Laravel 5.8 and higher. Read the [blogpost](https://protone.media/en/blog/a-new-laravel-package-to-handle-payments-and-subscriptions-with-paddle) about the introduction of the package!
 
 ## Features
 * Super easy wrapper around the [Paddle.com API](https://developer.paddle.com/api-reference/intro)
