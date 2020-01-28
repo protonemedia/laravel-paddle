@@ -24,6 +24,19 @@ class EventTest extends TestCase
     }
 
     /** @test */
+    public function it_can_check_if_payload_key_exists()
+    {
+        $event = new SubscriptionCreated([
+            'product_id' => 10,
+        ]);
+
+        $this->assertTrue(isset($event->product_id));
+        $this->assertFalse(empty($event->product_id));
+        $this->assertFalse(isset($event->dummy_key));
+        $this->assertTrue(empty($event->dummy_key));
+    }
+
+    /** @test */
     public function it_can_fire_an_event_based_on_the_action_name()
     {
         EventFacade::fake();
