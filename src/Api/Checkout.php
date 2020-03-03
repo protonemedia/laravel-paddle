@@ -9,7 +9,7 @@ class Checkout
      */
     public function getOrderDetails(array $data = [])
     {
-        return new Request('/1.0/order', $data, [], Request::METHOD_GET);
+        return new GetOrderDetailsRequest('/1.0/order', $data, [], Request::METHOD_GET);
     }
 
     /**

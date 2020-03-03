@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-paddle` will be documented in this file
 
+## 1.1.0 - 2020-03-03
+- Support for Laravel 7.0
+- Fix for the OrderDetails request URL
+
 ## 1.0.6 - 2020-01-28
 - Added attribute existance check on the event webhook data
 
