@@ -45,7 +45,7 @@ class ApiTest extends TestCase
     }
 
     /** @test */
-    public function it_throws_an_exception_if_the_success_attribute_is_false()
+    public function it_throws_an_exception_if_the_success_attribute_is_false_and_an_error_object_is_given()
     {
         $zttp = $this->mockZttp();
         $zttp->shouldReceive('post')->andReturnSelf();
@@ -59,6 +59,25 @@ class ApiTest extends TestCase
             $request = (new Api)->subscription()->listPlans()->send();
         } catch (PaddleApiException $exception) {
             return $this->assertEquals("[1336] Whoops!", $exception->getMessage());
+        }
+
+        $this->fail('Should have thrown PaddleApiException');
+    }
+
+    /** @test */
+    public function it_throws_an_exception_if_the_success_attribute_is_false()
+    {
+        $zttp = $this->mockZttp();
+        $zttp->shouldReceive('post')->andReturnSelf();
+        $zttp->shouldReceive('isSuccess')->andReturnTrue();
+        $zttp->shouldReceive('json')->andReturn([
+            'success' => false,
+        ]);
+
+        try {
+            $request = (new Api)->subscription()->listPlans()->send();
+        } catch (PaddleApiException $exception) {
+            return $this->assertEquals("Paddle API request was unsuccessful and no error code/message was returned", $exception->getMessage());
         }
 
         $this->fail('Should have thrown PaddleApiException');
@@ -96,7 +115,6 @@ class ApiTest extends TestCase
         $response = (new Api)->product()->generatePayLink([
             'product_id' => 10,
         ])->send();
-
     }
 
     /** @test */

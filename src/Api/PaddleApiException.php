@@ -23,6 +23,10 @@ class PaddleApiException extends \Exception
      */
     public static function fromResponse(array $response)
     {
-        return new static("[{$response['error']['code']}] {$response['error']['message']}");
+        if (array_key_exists('error', $response)) {
+            return new static("[{$response['error']['code']}] {$response['error']['message']}");
+        }
+
+        return new static("Paddle API request was unsuccessful and no error code/message was returned");
     }
 }
