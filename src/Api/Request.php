@@ -21,7 +21,7 @@ class Request
     /**
      * @var string
      */
-    private $uri;
+    protected $uri;
 
     /**
      * @var array

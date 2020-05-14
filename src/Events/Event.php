@@ -48,6 +48,17 @@ abstract class Event
     }
 
     /**
+     * Determine if an attribute exists on the webhook data.
+     *
+     * @param  string $key
+     * @return bool
+     */
+    public function __isset($key)
+    {
+        return isset($this->webhookData[$key]);
+    }
+
+    /**
      * Generates the event class name with the 'alert_name' attribute from
      * the data and fires the event with the data.
      *

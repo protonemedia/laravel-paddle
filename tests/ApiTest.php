@@ -170,4 +170,12 @@ class ApiTest extends TestCase
 
         $this->assertEquals('https://vendors.paddle.com/api/2.0/subscription/123/charge', $request->url());
     }
+
+    /** @test */
+    public function it_has_a_custom_host_for_the_order_details_request()
+    {
+        $request = (new Api)->checkout()->getOrderDetails();
+
+        $this->assertEquals('https://checkout.paddle.com/api/1.0/order', $request->url());
+    }
 }

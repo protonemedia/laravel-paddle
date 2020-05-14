@@ -11,7 +11,7 @@ This package provides an integration with [Paddle.com](https://paddle.com) for L
 * Super easy wrapper around the [Paddle.com API](https://developer.paddle.com/api-reference/intro)
 * Built-in support for Webhooks and Event handling
 * Blade directive to use [Paddle.js](https://paddle.com/docs/paddle-js-overlay-checkout/) in your front-end
-* Compatible with Laravel 5.8 and 6.0.
+* Compatible with Laravel 5.8, 6.0 and 7.0.
 * PHP 7.2, 7.3 or 7.4 required.
 
 ## Installation
@@ -182,6 +182,14 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 ## Contributing
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
+
+## Other Laravel packages
+
+* [`Laravel Analytics Event Tracking`](https://github.com/pascalbaljetmedia/laravel-analytics-event-tracking): Laravel package to easily send events to Google Analytics.
+* [`Laravel Blade On Demand`](https://github.com/pascalbaljetmedia/laravel-blade-on-demand): Laravel package to compile Blade templates in memory.
+* [`Laravel FFMpeg`](https://github.com/pascalbaljetmedia/laravel-ffmpeg): This package provides an integration with FFmpeg for Laravel. The storage of the files is handled by Laravel's Filesystem.
+* [`Laravel Verify New Email`](https://github.com/pascalbaljetmedia/laravel-verify-new-email): This package adds support for verifying new email addresses: when a user updates its email address, it won't replace the old one until the new one is verified.
+* [`Laravel WebDAV`](https://github.com/pascalbaljetmedia/laravel-webdav): WebDAV driver for Laravel's Filesystem.
 
 ### Security
 
