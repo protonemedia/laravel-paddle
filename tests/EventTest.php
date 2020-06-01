@@ -5,6 +5,7 @@ namespace ProtoneMedia\LaravelPaddle\Tests;
 use Illuminate\Support\Facades\Event as EventFacade;
 use Orchestra\Testbench\TestCase;
 use ProtoneMedia\LaravelPaddle\Events\Event;
+use ProtoneMedia\LaravelPaddle\Events\GenericWebhook;
 use ProtoneMedia\LaravelPaddle\Events\SubscriptionCreated;
 
 class EventTest extends TestCase
@@ -47,6 +48,20 @@ class EventTest extends TestCase
         ]);
 
         EventFacade::assertDispatched(SubscriptionCreated::class, function ($event) {
+            return $event->alert_id === '10';
+        });
+    }
+
+    /** @test */
+    public function it_can_fire_an_event_even_if_the_data_has_no_alert_name()
+    {
+        EventFacade::fake();
+
+        Event::fire($data = [
+            'alert_id' => '10',
+        ]);
+
+        EventFacade::assertDispatched(GenericWebhook::class, function ($event) {
             return $event->alert_id === '10';
         });
     }

@@ -63,14 +63,18 @@ abstract class Event
      * the data and fires the event with the data.
      *
      * @param  array  $data
-     * @return void
+     * @return array|null
      */
     public static function fire(array $data)
     {
+        if (!array_key_exists('alert_name', $data)) {
+            return event(new GenericWebhook($data));
+        }
+
         $event = Str::studly($data['alert_name']);
 
         $eventClass = __NAMESPACE__ . '\\' . $event;
 
-        event(new $eventClass($data));
+        return event(new $eventClass($data));
     }
 }
