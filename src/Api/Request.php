@@ -113,11 +113,11 @@ class Request
 
         $json = $response->json();
 
-        if ($json['success'] ?? null) {
-            return $json['response'];
+        if (array_key_exists('success', $json) && !$json['success']) {
+            throw PaddleApiException::fromResponse($json);
         }
 
-        throw PaddleApiException::fromResponse($json);
+        return $json['response'] ?? $json;
     }
 
     /**

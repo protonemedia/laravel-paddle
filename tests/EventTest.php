@@ -2,6 +2,7 @@
 
 namespace ProtoneMedia\LaravelPaddle\Tests;
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Event as EventFacade;
 use Orchestra\Testbench\TestCase;
 use ProtoneMedia\LaravelPaddle\Events\Event;
@@ -17,7 +18,7 @@ class EventTest extends TestCase
             'product_id'     => 10,
             'customer_email' => 'test@example.com',
             'passthrough'    => json_encode(['team_id' => 20]),
-        ]);
+        ], Request::createFromGlobals());
 
         $this->assertEquals(10, $event->product_id);
         $this->assertEquals('test@example.com', $event->customer_email);
@@ -29,7 +30,7 @@ class EventTest extends TestCase
     {
         $event = new SubscriptionCreated([
             'product_id' => 10,
-        ]);
+        ], Request::createFromGlobals());
 
         $this->assertTrue(isset($event->product_id));
         $this->assertFalse(empty($event->product_id));
@@ -45,10 +46,10 @@ class EventTest extends TestCase
         Event::fire($data = [
             'alert_id'   => '10',
             'alert_name' => 'subscription_created',
-        ]);
+        ], $request = Request::createFromGlobals());
 
-        EventFacade::assertDispatched(SubscriptionCreated::class, function ($event) {
-            return $event->alert_id === '10';
+        EventFacade::assertDispatched(SubscriptionCreated::class, function ($event) use ($request) {
+            return $event->alert_id === '10' && $event->getRequest() === $request;
         });
     }
 
@@ -59,7 +60,7 @@ class EventTest extends TestCase
 
         Event::fire($data = [
             'alert_id' => '10',
-        ]);
+        ], Request::createFromGlobals());
 
         EventFacade::assertDispatched(GenericWebhook::class, function ($event) {
             return $event->alert_id === '10';

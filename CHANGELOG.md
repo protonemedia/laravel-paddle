@@ -2,6 +2,11 @@
 
 All notable changes to `laravel-paddle` will be documented in this file
 
+## 1.1.2 - 2020-06-01
+
+- Added a 'GenericWebhook' event, for webhooks with an 'alert_name' key.
+- Handles JSON responses that don't have success/response keys.
+
 ## 1.1.1 - 2020-05-14
 
 - Better exception handling for responses without a code/message

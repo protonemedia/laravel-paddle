@@ -53,6 +53,6 @@ class WebhookController
 
         $this->verifySignature($request->input($signatureKey), $data);
 
-        Event::fire($data);
+        Event::fire($data, $request);
     }
 }

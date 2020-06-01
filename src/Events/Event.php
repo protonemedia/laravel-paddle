@@ -2,6 +2,7 @@
 
 namespace ProtoneMedia\LaravelPaddle\Events;
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 abstract class Event
@@ -11,9 +12,15 @@ abstract class Event
      */
     protected $webhookData;
 
-    public function __construct(array $webhookData)
+    /**
+     * @var \Illuminate\Http\Request
+     */
+    protected $request;
+
+    public function __construct(array $webhookData, Request $request)
     {
         $this->webhookData = $webhookData;
+        $this->request     = $request;
     }
 
     /**
@@ -24,6 +31,16 @@ abstract class Event
     public function all(): array
     {
         return $this->webhookData;
+    }
+
+    /**
+     * Getter for the request.
+     *
+     * @return \Illuminate\Http\Request
+     */
+    public function getRequest(): Request
+    {
+        return $this->request;
     }
 
     /**
@@ -63,18 +80,15 @@ abstract class Event
      * the data and fires the event with the data.
      *
      * @param  array  $data
-     * @return array|null
+     * @param  \Illuminate\Http\Request  $request
+     * @return void
      */
-    public static function fire(array $data)
+    public static function fire(array $data, Request $request)
     {
-        if (!array_key_exists('alert_name', $data)) {
-            return event(new GenericWebhook($data));
-        }
-
-        $event = Str::studly($data['alert_name']);
+        $event = Str::studly($data['alert_name'] ?? 'generic_webhook');
 
         $eventClass = __NAMESPACE__ . '\\' . $event;
 
-        return event(new $eventClass($data));
+        return event(new $eventClass($data, $request));
     }
 }

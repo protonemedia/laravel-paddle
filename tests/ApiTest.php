@@ -65,6 +65,21 @@ class ApiTest extends TestCase
     }
 
     /** @test */
+    public function it_returns_the_complete_json_response_if_the_response_key_doesnt_exist()
+    {
+        $zttp = $this->mockZttp();
+        $zttp->shouldReceive('post')->andReturnSelf();
+        $zttp->shouldReceive('isSuccess')->andReturnTrue();
+        $zttp->shouldReceive('json')->andReturn([
+            'key' => 'value',
+        ]);
+
+        $response = (new Api)->subscription()->listPlans()->send();
+
+        $this->assertEquals(['key' => 'value'], $response);
+    }
+
+    /** @test */
     public function it_throws_an_exception_if_the_success_attribute_is_false()
     {
         $zttp = $this->mockZttp();

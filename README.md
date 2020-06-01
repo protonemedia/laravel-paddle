@@ -132,8 +132,9 @@ Events:
 * `ProtoneMedia\LaravelPaddle\Events\TransferPaid`
 * `ProtoneMedia\LaravelPaddle\Events\UpdateAudienceMember`
 
+Some webhooks, like the [Fulfillment Webhook](https://developer.paddle.com/webhook-reference/product-fulfillment/fulfillment-webhook), don't have an `alert_name` key. Those webhooks will be mapped to a `ProtoneMedia\LaravelPaddle\Events\GenericWebhook` event.
 
-When you register a listener to handle the event, the payload is easily accessible:
+When you register a listener to handle the event, the payload is easily accessible. You also have access to the original HTTP request.
 
 ```php
 <?php
@@ -153,6 +154,10 @@ class CreateSubscriptionModel
         // or
 
         $webhookData = $event->all();
+
+        //
+
+        $request = $event->getRequest();
     }
 }
 ```
