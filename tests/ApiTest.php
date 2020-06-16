@@ -187,10 +187,15 @@ class ApiTest extends TestCase
     }
 
     /** @test */
-    public function it_has_a_custom_host_for_the_order_details_request()
+    public function it_has_a_custom_host_for_the_checkouts_request()
     {
         $request = (new Api)->checkout()->getOrderDetails();
-
         $this->assertEquals('https://checkout.paddle.com/api/1.0/order', $request->url());
+
+        $request = (new Api)->checkout()->getUserHistory();
+        $this->assertEquals('https://checkout.paddle.com/api/2.0/user/history', $request->url());
+
+        $request = (new Api)->checkout()->getPrices();
+        $this->assertEquals('https://checkout.paddle.com/api/2.0/prices', $request->url());
     }
 }

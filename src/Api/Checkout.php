@@ -9,7 +9,7 @@ class Checkout
      */
     public function getOrderDetails(array $data = [])
     {
-        return new GetOrderDetailsRequest('/1.0/order', $data, [], Request::METHOD_GET);
+        return new CheckoutRequest('/1.0/order', $data, [], Request::METHOD_GET);
     }
 
     /**
@@ -17,7 +17,7 @@ class Checkout
      */
     public function getUserHistory(array $data = [])
     {
-        return new Request('/2.0/user/history', $data, [
+        return new CheckoutRequest('/2.0/user/history', $data, [
             'email'      => 'required|email',
             'product_id' => 'numeric',
         ], Request::METHOD_GET);
@@ -28,7 +28,7 @@ class Checkout
      */
     public function getPrices(array $data = [])
     {
-        return new Request('/2.0/prices', $data, [
+        return new CheckoutRequest('/2.0/prices', $data, [
             'product_ids' => 'required',
         ], Request::METHOD_GET);
     }
