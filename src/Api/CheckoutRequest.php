@@ -2,7 +2,7 @@
 
 namespace ProtoneMedia\LaravelPaddle\Api;
 
-class GetOrderDetailsRequest extends Request
+class CheckoutRequest extends Request
 {
     public function url(): string
     {
