@@ -1,8 +1,8 @@
 # Laravel Paddle
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/protonemedia/laravel-paddle.svg?style=flat-square)](https://packagist.org/packages/protonemedia/laravel-paddle)
-[![Build Status](https://img.shields.io/travis/pascalbaljetmedia/laravel-paddle/master.svg?style=flat-square)](https://travis-ci.org/pascalbaljetmedia/laravel-paddle)
-[![Quality Score](https://img.shields.io/scrutinizer/g/pascalbaljetmedia/laravel-paddle.svg?style=flat-square)](https://scrutinizer-ci.com/g/pascalbaljetmedia/laravel-paddle)
+[![Build Status](https://img.shields.io/travis/protonemedia/laravel-paddle/master.svg?style=flat-square)](https://travis-ci.org/protonemedia/laravel-paddle)
+[![Quality Score](https://img.shields.io/scrutinizer/g/protonemedia/laravel-paddle.svg?style=flat-square)](https://scrutinizer-ci.com/g/protonemedia/laravel-paddle)
 [![Total Downloads](https://img.shields.io/packagist/dt/protonemedia/laravel-paddle.svg?style=flat-square)](https://packagist.org/packages/protonemedia/laravel-paddle)
 
 This package provides an integration with [Paddle.com](https://paddle.com) for Laravel 5.8 and higher. Read the [blogpost](https://protone.media/en/blog/a-new-laravel-package-to-handle-payments-and-subscriptions-with-paddle) about the introduction of the package!
