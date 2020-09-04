@@ -5,13 +5,13 @@
 [![Quality Score](https://img.shields.io/scrutinizer/g/protonemedia/laravel-paddle.svg?style=flat-square)](https://scrutinizer-ci.com/g/protonemedia/laravel-paddle)
 [![Total Downloads](https://img.shields.io/packagist/dt/protonemedia/laravel-paddle.svg?style=flat-square)](https://packagist.org/packages/protonemedia/laravel-paddle)
 
-This package provides an integration with [Paddle.com](https://paddle.com) for Laravel 5.8 and higher. Read the [blogpost](https://protone.media/en/blog/a-new-laravel-package-to-handle-payments-and-subscriptions-with-paddle) about the introduction of the package!
+This package provides an integration with [Paddle.com](https://paddle.com) for Laravel 6.0 and higher. Read the [blogpost](https://protone.media/en/blog/a-new-laravel-package-to-handle-payments-and-subscriptions-with-paddle) about the introduction of the package!
 
 ## Features
 * Super easy wrapper around the [Paddle.com API](https://developer.paddle.com/api-reference/intro)
 * Built-in support for Webhooks and Event handling
 * Blade directive to use [Paddle.js](https://paddle.com/docs/paddle-js-overlay-checkout/) in your front-end
-* Compatible with Laravel 5.8, 6.0 and 7.0.
+* Compatible with Laravel 6.0 and higher.
 * PHP 7.2, 7.3 or 7.4 required.
 
 ## Installation
