@@ -2,12 +2,12 @@
 
 namespace ProtoneMedia\LaravelPaddle\Tests;
 
-use Mockery;
+use Illuminate\Http\Client\Request;
+use Illuminate\Support\Facades\Http;
 use Orchestra\Testbench\TestCase;
 use ProtoneMedia\LaravelPaddle\Api\Api;
 use ProtoneMedia\LaravelPaddle\Api\PaddleApiException;
 use ProtoneMedia\LaravelPaddle\PaddleServiceProvider;
-use Zttp\PendingZttpRequest;
 
 class ApiTest extends TestCase
 {
@@ -16,24 +16,14 @@ class ApiTest extends TestCase
         return [PaddleServiceProvider::class];
     }
 
-    private function mockZttp(): PendingZttpRequest
-    {
-        return tap(Mockery::mock(PendingZttpRequest::class), function ($zttp) {
-            $zttp->shouldReceive('asFormParams')->andReturnSelf();
-
-            $this->app->singleton('laravel-paddle.http', function () use ($zttp) {
-                return $zttp;
-            });
-        });
-    }
-
     /** @test */
     public function it_throws_an_exception_if_the_request_was_unsuccessful()
     {
-        $zttp = $this->mockZttp();
-        $zttp->shouldReceive('post')->andReturnSelf();
-        $zttp->shouldReceive('isSuccess')->andReturnFalse();
-        $zttp->shouldReceive('status')->andReturn(500);
+        Http::fake(function (Request $request) {
+            $this->assertEquals('POST', $request->method());
+
+            return Http::response(null, 500);
+        });
 
         try {
             $request = (new Api)->subscription()->listPlans()->send();
@@ -47,13 +37,14 @@ class ApiTest extends TestCase
     /** @test */
     public function it_throws_an_exception_if_the_success_attribute_is_false_and_an_error_object_is_given()
     {
-        $zttp = $this->mockZttp();
-        $zttp->shouldReceive('post')->andReturnSelf();
-        $zttp->shouldReceive('isSuccess')->andReturnTrue();
-        $zttp->shouldReceive('json')->andReturn([
-            'success' => false,
-            'error'   => ['code' => 1336, 'message' => 'Whoops!'],
-        ]);
+        Http::fake(function (Request $request) {
+            $this->assertEquals('POST', $request->method());
+
+            return Http::response([
+                'success' => false,
+                'error'   => ['code' => 1336, 'message' => 'Whoops!'],
+            ], 200);
+        });
 
         try {
             $request = (new Api)->subscription()->listPlans()->send();
@@ -67,12 +58,13 @@ class ApiTest extends TestCase
     /** @test */
     public function it_returns_the_complete_json_response_if_the_response_key_doesnt_exist()
     {
-        $zttp = $this->mockZttp();
-        $zttp->shouldReceive('post')->andReturnSelf();
-        $zttp->shouldReceive('isSuccess')->andReturnTrue();
-        $zttp->shouldReceive('json')->andReturn([
-            'key' => 'value',
-        ]);
+        Http::fake(function (Request $request) {
+            $this->assertEquals('POST', $request->method());
+
+            return Http::response([
+                'key' => 'value',
+            ], 200);
+        });
 
         $response = (new Api)->subscription()->listPlans()->send();
 
@@ -82,12 +74,13 @@ class ApiTest extends TestCase
     /** @test */
     public function it_throws_an_exception_if_the_success_attribute_is_false()
     {
-        $zttp = $this->mockZttp();
-        $zttp->shouldReceive('post')->andReturnSelf();
-        $zttp->shouldReceive('isSuccess')->andReturnTrue();
-        $zttp->shouldReceive('json')->andReturn([
-            'success' => false,
-        ]);
+        Http::fake(function (Request $request) {
+            $this->assertEquals('POST', $request->method());
+
+            return Http::response([
+                'success' => false,
+            ], 200);
+        });
 
         try {
             $request = (new Api)->subscription()->listPlans()->send();
@@ -108,24 +101,20 @@ class ApiTest extends TestCase
             ],
         ]);
 
-        $zttp = $this->mockZttp();
-
-        $zttp->shouldReceive('post')->withArgs(function ($url, $data) {
-            $this->assertEquals('https://vendors.paddle.com/api/2.0/product/generate_pay_link', $url);
+        Http::fake(function (Request $request) {
+            $this->assertEquals('POST', $request->method());
+            $this->assertEquals('https://vendors.paddle.com/api/2.0/product/generate_pay_link', $request->url());
             $this->assertEquals([
                 'vendor_id'        => 20,
                 'vendor_auth_code' => 30,
                 'product_id'       => 10,
-            ], $data);
+            ], $request->data());
 
-            return true;
-        })->andReturnSelf();
-
-        $zttp->shouldReceive('isSuccess')->andReturnTrue();
-        $zttp->shouldReceive('json')->andReturn([
-            'success'  => true,
-            'response' => 'Hello!',
-        ]);
+            return Http::response([
+                'success'  => true,
+                'response' => 'Hello!',
+            ], 200);
+        });
 
         $response = (new Api)->product()->generatePayLink([
             'product_id' => 10,
@@ -135,13 +124,14 @@ class ApiTest extends TestCase
     /** @test */
     public function it_returns_the_response_attribute_if_the_request_was_successful()
     {
-        $zttp = $this->mockZttp();
-        $zttp->shouldReceive('post')->andReturnSelf();
-        $zttp->shouldReceive('isSuccess')->andReturnTrue();
-        $zttp->shouldReceive('json')->andReturn([
-            'success'  => true,
-            'response' => 'Hello!',
-        ]);
+        Http::fake(function (Request $request) {
+            $this->assertEquals('POST', $request->method());
+
+            return Http::response([
+                'success'  => true,
+                'response' => 'Hello!',
+            ], 200);
+        });
 
         $response = (new Api)->subscription()->listPlans()->send();
 
@@ -151,17 +141,15 @@ class ApiTest extends TestCase
     /** @test */
     public function it_can_make_a_get_request()
     {
-        $zttp = $this->mockZttp();
-        $zttp->shouldReceive('get')->withArgs(function ($url, $query) {
-            $this->assertFalse(array_key_exists('vendor_auth_code', $query));
+        Http::fake(function (Request $request) {
+            $this->assertEquals('GET', $request->method());
+            $this->assertFalse(array_key_exists('vendor_auth_code', $request->data()));
 
-            return true;
-        })->andReturnSelf();
-        $zttp->shouldReceive('isSuccess')->andReturnTrue();
-        $zttp->shouldReceive('json')->andReturn([
-            'success'  => true,
-            'response' => 'Hello!',
-        ]);
+            return Http::response([
+                'success'  => true,
+                'response' => 'Hello!',
+            ], 200);
+        });
 
         $response = (new Api)->checkout()->getUserHistory([
             'email' => 'test@example',
