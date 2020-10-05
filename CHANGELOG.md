@@ -2,6 +2,15 @@
 
 All notable changes to `laravel-paddle` will be documented in this file
 
+## 2.0.0 - 2020-10-05
+
+- Added support for Laravel 8.0
+- Dropped support for Laravel 7.0 and lower
+
+## 1.2.1 - 2020-10-05
+
+- Dropped support for Laravel 8.0, please upgrade to 2.0.
+
 ## 1.2.0 - 2020-09-04
 
 - Added support for Laravel 8.0

@@ -2,6 +2,7 @@
 
 namespace ProtoneMedia\LaravelPaddle\Api;
 
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
@@ -103,11 +104,9 @@ class Request
             $data['vendor_auth_code'] = config('paddle.vendor_auth_code');
         }
 
-        $response = app('laravel-paddle.http')
-            ->asFormParams()
-            ->$method($this->url(), $data);
+        $response = Http::asForm()->$method($this->url(), $data);
 
-        if (!$response->isSuccess()) {
+        if (!$response->successful()) {
             throw PaddleApiException::unsuccessfulStatus($response->status());
         }
 
