@@ -5,6 +5,11 @@ namespace ProtoneMedia\LaravelPaddle;
 use Illuminate\Support\Facades\Facade;
 
 /**
+ * @method static \ProtoneMedia\LaravelPaddle\Api\Alert alert()
+ * @method static \ProtoneMedia\LaravelPaddle\Api\Checkout checkout()
+ * @method static \ProtoneMedia\LaravelPaddle\Api\Product product()
+ * @method static \ProtoneMedia\LaravelPaddle\Api\Subscription subscription()
+ *
  * @see \ProtoneMedia\LaravelPaddle\Api\Api
  */
 class Paddle extends Facade
