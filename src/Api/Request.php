@@ -104,7 +104,13 @@ class Request
             $data['vendor_auth_code'] = config('paddle.vendor_auth_code');
         }
 
-        $response = Http::asForm()->$method($this->url(), $data);
+        $url = $this->url();
+
+        if (config('paddle.sandbox_environment')) {
+            $url = str_replace('https://', 'https://sandbox-', $url);
+        }
+
+        $response = Http::asForm()->$method($url, $data);
 
         if (!$response->successful()) {
             throw PaddleApiException::unsuccessfulStatus($response->status());

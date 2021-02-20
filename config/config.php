@@ -10,4 +10,9 @@ return [
 
     'webhook_uri' => 'paddle/webhook',
 
+    /**
+     * https://developer.paddle.com/getting-started/sandbox
+     */
+    'sandbox_environment' => env('PADDLE_SANBOX', false),
+
 ];

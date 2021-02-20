@@ -186,4 +186,24 @@ class ApiTest extends TestCase
         $request = (new Api)->checkout()->getPrices();
         $this->assertEquals('https://checkout.paddle.com/api/2.0/prices', $request->url());
     }
+
+    /** @test */
+    public function it_can_set_the_environment_to_sandbox()
+    {
+        config([
+            'paddle' => [
+                'sandbox_environment' => true,
+            ],
+        ]);
+
+        Http::fake(function (Request $request) {
+            $this->assertEquals('https://sandbox-vendors.paddle.com/api/2.0/product/generate_pay_link', $request->url());
+
+            return Http::response([], 200);
+        });
+
+        (new Api)->product()->generatePayLink([
+            'product_id' => 10,
+        ])->send();
+    }
 }
