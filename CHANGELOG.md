@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-paddle` will be documented in this file
 
+## 2.2.0 - 2021-02-20
+
+- Support for [Paddle Sandbox](https://developer.paddle.com/getting-started/sandbox)
+
+## 2.1.0 - 2020-10-30
+
+- Support for PHP 8.0
+
 ## 2.0.0 - 2020-10-05
 
 - Added support for Laravel 8.0
