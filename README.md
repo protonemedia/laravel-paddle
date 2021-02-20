@@ -53,7 +53,7 @@ PADDLE_PUBLIC_KEY="-----BEGIN PUBLIC KEY-----
 
 ### Paddle Sandbox
 
-As of version 2.2.0, this package supports the [Paddle Sandbox](https://developer.paddle.com/getting-started/sandbox) environment. To use this environment, set the `sandbox_environment` configuration key to `true`. This will configure the API URLs , as well as the Paddle JavaScript library. If you've published the Blade View while using a previous version of this package, make sure you republish the view:
+As of version 2.2.0, this package supports the [Paddle Sandbox](https://developer.paddle.com/getting-started/sandbox) environment. To use this environment, set the `sandbox_environment` configuration key to `true`. This will configure the API URLs, as well as the Paddle JavaScript library. If you've published the Blade View while using a previous version of this package, make sure you republish the view:
 
 ```bash
 php artisan vendor:publish --provider="ProtoneMedia\LaravelPaddle\PaddleServiceProvider" --tag=views
