@@ -43,7 +43,7 @@ php artisan vendor:publish --provider="ProtoneMedia\LaravelPaddle\PaddleServiceP
 Set your [Vendor ID and Code](https://vendors.paddle.com/authentication) and the [Public Key](https://vendors.paddle.com/public-key) settings in your `.env` file or in the `config/paddle.php` file. The Public Key is used to verify incoming webhooks from Paddle.
 
 ```bash
-PADDLE_SANBOX=false
+PADDLE_SANDBOX=false
 PADDLE_VENDOR_ID=123
 PADDLE_VENDOR_AUTH_CODE=456
 PADDLE_PUBLIC_KEY="-----BEGIN PUBLIC KEY-----
