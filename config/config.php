@@ -13,6 +13,6 @@ return [
     /**
      * https://developer.paddle.com/getting-started/sandbox
      */
-    'sandbox_environment' => env('PADDLE_SANBOX', false),
+    'sandbox_environment' => env('PADDLE_SANDBOX', false),
 
 ];
