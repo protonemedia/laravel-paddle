@@ -2,6 +2,19 @@
 
 namespace ProtoneMedia\LaravelPaddle\Api;
 
+/**
+  * Class GeneratePayLinkRequest
+  * @package ProtoneMedia\LaravelPaddle\Api
+  * @method productId()
+  * @method title()
+  * @method webhookUrl()
+  * @method prices()
+  * @method customMessage()
+  * @method quantity()
+  * @method recurringAffiliateLimit()
+  * @method customerEmail()
+  * @method returnUrl()
+  */
 class GeneratePayLinkRequest extends Request
 {
     /**

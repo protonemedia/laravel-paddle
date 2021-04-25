@@ -39,6 +39,7 @@ class Product
             'quantity'                  => 'min:1|max:100',
             'recurring_affiliate_limit' => 'min:1',
             'customer_email'            => 'email',
+            'return_url'                => 'url',
         ]);
     }
 
