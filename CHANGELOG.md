@@ -2,6 +2,11 @@
 
 All notable changes to `laravel-paddle` will be documented in this file
 
+## 2.3.0 - 2021-12-19
+
+- Support for PHP 8.1
+- Dropped support for PHP 7.3
+
 ## 2.2.0 - 2021-02-20
 
 - Support for [Paddle Sandbox](https://developer.paddle.com/getting-started/sandbox)
