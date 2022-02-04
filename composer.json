@@ -21,11 +21,11 @@
         "ext-openssl": "*",
         "egulias/email-validator": "^2.1.10",
         "guzzlehttp/guzzle": "^7.0.1",
-        "illuminate/support": "^8.67",
-        "illuminate/validation": "^8.67"
+        "illuminate/support": "^8.67|^9.0",
+        "illuminate/validation": "^8.67|^9.0"
     },
     "require-dev": {
-        "orchestra/testbench": "^6.23",
+        "orchestra/testbench": "^6.23|^7.0",
         "phpunit/phpunit": "^9.4"
     },
     "autoload": {

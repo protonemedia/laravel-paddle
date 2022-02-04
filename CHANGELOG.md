@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-paddle` will be documented in this file
 
+## 2.4.0 - 2022-02-04
+
+- Support for Laravel 9
+
 ## 2.3.0 - 2021-12-19
 
 - Support for PHP 8.1
