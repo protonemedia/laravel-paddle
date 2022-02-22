@@ -3,5 +3,5 @@
     @if(config('paddle.sandbox_environment'))
     Paddle.Environment.set('sandbox');
     @endif
-    Paddle.Setup(@json(['vendor' => (int) config('paddle.vendor_id')]));
+    Paddle.Setup(@json(['vendor' => (int) $vendorId]));
 </script>
