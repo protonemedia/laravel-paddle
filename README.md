@@ -13,9 +13,15 @@ This package provides an integration with [Paddle.com](https://paddle.com) for L
 * Blade directive to use [Paddle.js](https://paddle.com/docs/paddle-js-overlay-checkout/) in your front-end
 * Support for [Paddle Sandbox](https://developer.paddle.com/getting-started/sandbox)
 
-## Support
+## Support this package!
 
-We proudly support the community by developing Laravel packages and giving them away for free. Keeping track of issues and pull requests takes time, but we're happy to help! If this package saves you time or if you're relying on it professionally, please consider [supporting the maintenance and development](https://github.com/sponsors/pascalbaljet).
+❤️ We proudly support the community by developing Laravel packages and giving them away for free. If this package saves you time or if you're relying on it professionally, please consider [sponsoring the maintenance and development](https://github.com/sponsors/pascalbaljet). Keeping track of issues and pull requests takes time, but we're happy to help!
+
+## Laravel Splade
+
+**Did you hear about Laravel Splade? 🤩**
+
+It's the *magic* of Inertia.js with the *simplicity* of Blade. [Splade](https://github.com/protonemedia/laravel-splade) provides a super easy way to build Single Page Applications using Blade templates. Besides that magic SPA-feeling, it comes with more than ten components to sparkle your app and make it interactive, all without ever leaving Blade.
 
 ## Installation
 
