@@ -13,7 +13,7 @@ This package provides an integration with [Paddle.com](https://paddle.com) for L
 * Blade directive to use [Paddle.js](https://paddle.com/docs/paddle-js-overlay-checkout/) in your front-end
 * Support for [Paddle Sandbox](https://developer.paddle.com/getting-started/sandbox)
 
-## Support this package!
+## Sponsor this package!
 
 ❤️ We proudly support the community by developing Laravel packages and giving them away for free. If this package saves you time or if you're relying on it professionally, please consider [sponsoring the maintenance and development](https://github.com/sponsors/pascalbaljet). Keeping track of issues and pull requests takes time, but we're happy to help!
 
@@ -28,7 +28,7 @@ It's the *magic* of Inertia.js with the *simplicity* of Blade. [Splade](https://
 Only the master branch and version 2.0 of this package are compatible with Laravel 8.0 and 9.0. If you're still using an older version of Laravel (or PHP < 7.3), please use the chart below to find out which version you should use. Mind that older versions are no longer supported.
 
 | Laravel Version | Package Version |
-|-----------------|-----------------|
+| --------------- | --------------- |
 | 8.0-9.0         | 2.0             |
 | 6.0-7.0         | 1.0             |
 
