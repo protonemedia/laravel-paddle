@@ -25,11 +25,11 @@ It's the *magic* of Inertia.js with the *simplicity* of Blade. [Splade](https://
 
 ## Installation
 
-Only the master branch and version 2.0 of this package are compatible with Laravel 8.0 and 9.0. If you're still using an older version of Laravel (or PHP < 7.3), please use the chart below to find out which version you should use. Mind that older versions are no longer supported.
+Only the master branch and version 2.0 of this package are compatible with Laravel 8.0 and higher. If you're still using an older version of Laravel (or PHP < 7.3), please use the chart below to find out which version you should use. Mind that older versions are no longer supported.
 
 | Laravel Version | Package Version |
 | --------------- | --------------- |
-| 8.0-9.0         | 2.0             |
+| 8.0-10.0        | 2.0             |
 | 6.0-7.0         | 1.0             |
 
 You can install the package via composer:
