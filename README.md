@@ -1,3 +1,5 @@
+> :warning: I'm unsure about the future of this package. I might be abandoning it, so please consider using [Laravel Cashier (Paddle)](https://laravel.com/docs/10.x/cashier-paddle).
+
 # Laravel Paddle
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/protonemedia/laravel-paddle.svg?style=flat-square)](https://packagist.org/packages/protonemedia/laravel-paddle)
