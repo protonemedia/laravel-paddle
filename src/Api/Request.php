@@ -98,11 +98,13 @@ class Request
 
         $method = $this->method;
 
-        $data = $this->getData() + ['vendor_id' => config('paddle.vendor_id')];
+        $data = ['vendor_id' => config('paddle.vendor_id')];
 
         if ($method === static::METHOD_POST) {
             $data['vendor_auth_code'] = config('paddle.vendor_auth_code');
         }
+
+        $data = array_merge($data, $this->getData());
 
         $url = $this->url();
 

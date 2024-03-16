@@ -27,8 +27,15 @@ class PaddleServiceProvider extends ServiceProvider
 
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'paddle');
 
-        Blade::directive('paddle', function () {
-            return "<?php echo view('paddle::javaScriptSetup'); ?>";
+        
+        Blade::directive('paddle', function ($vendorId = false) {
+            if (!$vendorId) {
+                $vendorId = config('paddle.vendor_id');
+            }
+
+            return "<?php 
+                echo view('paddle::javaScriptSetup', ['vendorId' => " . $vendorId . "]);
+            ?>";
         });
     }
 
