@@ -47,4 +47,19 @@ class DirectiveTest extends TestCase
         $this->assertStringContainsString("Paddle.Environment.set('sandbox');", $rendered);
         $this->assertStringContainsString('Paddle.Setup({"vendor":20});', $rendered);
     }
+
+    /** @test */
+    public function it_includes_paddle_js_with_vendor_id()
+    {
+        View::addLocation(__DIR__);
+        config([
+            'paddle' => [
+                'vendor_id' => 20,
+            ],
+        ]);
+
+        $rendered = (string) view('dummy-vendor', ['vendor' => 50]);
+
+        $this->assertStringContainsString('Paddle.Setup({"vendor":50});', $rendered);
+    }
 }
