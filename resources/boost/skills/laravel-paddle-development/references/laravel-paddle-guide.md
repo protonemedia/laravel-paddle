@@ -1,19 +1,15 @@
-# laravel-paddle development guide
+# Laravel Paddle Reference
 
-For full documentation, see the README: https://github.com/protonemedia/laravel-paddle#readme
+Complete reference for `protonemedia/laravel-paddle`. Full documentation: https://github.com/protonemedia/laravel-paddle#readme
 
-## At a glance
-Provides a Laravel integration with **Paddle** for payments/subscriptions (legacy package; see README warning).
+## Start Here
+- README / docs: https://github.com/protonemedia/laravel-paddle#readme
 
-## Local setup
-- Install dependencies: `composer install`
-- Keep the dev loop package-focused (avoid adding app-only scaffolding).
+## Notes for AI Assistants
+- Treat the README as the source of truth for the supported public API.
+- Keep changes backward-compatible unless the change is explicitly a breaking change.
 
 ## Testing
-- Run: `composer test` (preferred) or the repository’s configured test runner.
-- Add regression tests for bug fixes.
+- Run the repository test command (see README / composer scripts).
 
-## Notes & conventions
-- Keep changes conservative; avoid broad refactors.
-- Webhook signature validation and idempotency are critical: changes should be tested.
-- Treat public webhook/job payload handling as part of the contract.
+For detailed usage examples and the full API surface, refer to the README.

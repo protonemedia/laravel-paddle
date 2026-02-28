@@ -1,14 +1,8 @@
-{{--
-  Laravel Boost guidelines (repository core)
+{{-- Laravel Paddle Guidelines for AI Code Assistants --}}
+{{-- Source: https://github.com/protonemedia/laravel-paddle --}}
+{{-- License: MIT | (c) ProtoneMedia --}}
 
-  This file intentionally stays small: it links this repository to its package-specific Boost skill.
---}}
+## Laravel Paddle
 
-<section>
-    <h2>Repository development skill</h2>
-
-    <p>
-        When working on this repository, activate the <code>laravel-paddle-development</code> skill.
-        It contains package-specific conventions, testing notes, and common pitfalls.
-    </p>
-</section>
+- Provides a Paddle.com integration for Laravel.
+- Always activate the `laravel-paddle-development` skill when making package-specific changes.
