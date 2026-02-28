@@ -213,7 +213,6 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## Other Laravel packages
 
-- [Inertia Modal](https://inertiaui.com/inertia-modal/docs/introduction): With Inertia Modal, you can easily open any route in a Modal or Slideover without having to change anything about your existing routes or controllers.
 * [`Inertia Table`](https://inertiaui.com/inertia-table?utm_source=github&utm_campaign=laravel-paddle): The Ultimate Table for Inertia.js with built-in Query Builder.
 * [`Laravel Blade On Demand`](https://github.com/protonemedia/laravel-blade-on-demand): Laravel package to compile Blade templates in memory.
 * [`Laravel Cross Eloquent Search`](https://github.com/protonemedia/laravel-cross-eloquent-search): Laravel package to search through multiple Eloquent models.
@@ -237,4 +236,3 @@ If you discover any security related issues, please email pascal@protone.media i
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
-
