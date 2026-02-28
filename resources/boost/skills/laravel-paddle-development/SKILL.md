@@ -1,20 +1,37 @@
 ---
 name: laravel-paddle-development
-description: Development guidance for protonemedia/laravel-paddle (Paddle API wrapper + webhooks/events).
+description: Application integration guidance for protonemedia/laravel-paddle.
 license: MIT
 metadata:
   author: ProtoneMedia
   source: https://github.com/protonemedia/laravel-paddle
 ---
 
-# Laravel Paddle Development
+# Laravel Paddle
 
-Use this skill when changing code, docs, or tests in `protonemedia/laravel-paddle`.
+Guidance for **application developers** using `protonemedia/laravel-paddle` in a Laravel app.
 
-## Workflow
-1. Treat the repository README as the source of truth for the public API.
-2. Skim `references/laravel-paddle-guide.md` for the common usage patterns and gotchas.
-3. Keep changes backward-compatible unless explicitly making a breaking change.
+## When to Activate
+
+- You’re adding this package to an app, wiring it into routes/controllers/jobs/commands, or writing tests that use it.
+- You’re debugging runtime behaviour coming from this package (configuration, environment requirements, expected outputs).
+
+## Scope
+
+- Focus on **how to use the package’s public API** from a Laravel application.
+- Prefer patterns shown in the README and reference doc.
+
+## Do
+
+- Follow the package’s documented configuration steps (publishing config, env vars, middleware, etc.).
+- Provide copy-pastable examples that compile in a typical Laravel project.
+- Call out common pitfalls (permissions, queueing, test fakes, disk configuration) when relevant.
+
+## Don’t
+
+- Don’t suggest changing this package’s internal source code unless the user explicitly says they are contributing to the package.
+- Don’t invent undocumented methods/options; stick to the README/reference.
 
 ## Reference
+
 - references/laravel-paddle-guide.md

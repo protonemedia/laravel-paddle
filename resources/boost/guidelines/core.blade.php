@@ -1,10 +1,10 @@
-{{-- Laravel Paddle Guidelines for AI Code Assistants --}}
-{{-- Source: https://github.com/protonemedia/laravel-paddle --}}
-{{-- License: MIT | (c) ProtoneMedia --}}
+{-- Laravel Paddle Guidelines for AI Code Assistants --}
+{-- Source: https://github.com/protonemedia/laravel-paddle --}
+{-- License: MIT | (c) ProtoneMedia --}
 
 ## Laravel Paddle
 
-- This package provides a Paddle.com integration for Laravel (API wrapper + webhook/event mapping + Blade directive).
-- Always activate the `laravel-paddle-development` skill when making package-specific changes.
-- For package usage patterns, configuration keys, and common pitfalls, consult:
+- This project uses **Laravel Paddle** (ProtoneMedia) in a Laravel application.
+- Activate the **`laravel-paddle-development`** skill when you are **integrating, configuring, or using** this package in app code (controllers, jobs, tests, config, routes, Blade, etc.).
+- Use the reference doc for the package’s public API and common recipes:
   - `resources/boost/skills/laravel-paddle-development/references/laravel-paddle-guide.md`
