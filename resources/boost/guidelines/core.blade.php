@@ -4,7 +4,5 @@
 
 ## Laravel Paddle
 
-- This project uses **Laravel Paddle** (ProtoneMedia) in a Laravel application.
-- Activate the **`laravel-paddle-development`** skill when you are **integrating, configuring, or using** this package in app code (controllers, jobs, tests, config, routes, Blade, etc.).
-- Use the reference doc for the package’s public API and common recipes:
-  - `resources/boost/skills/laravel-paddle-development/references/laravel-paddle-guide.md`
+- `protonemedia/laravel-paddle.` helps you work with Laravel Paddle in Laravel.
+- Always activate the `laravel-paddle-development` skill when working with Laravel Paddle configuration, integration, or any code that relies on this package.
