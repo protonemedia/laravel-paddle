@@ -1,6 +1,6 @@
 # Laravel Paddle Reference
 
-Complete reference for `protonemedia/laravel-paddle`. Full documentation: https://github.com/protonemedia/laravel-paddle#readme
+Complete reference for protonemedia/laravel-paddle. Full documentation: https://github.com/protonemedia/laravel-paddle#readme
 
 ## Start Here
 - README / docs: https://github.com/protonemedia/laravel-paddle#readme

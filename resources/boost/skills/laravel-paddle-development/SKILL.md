@@ -1,6 +1,6 @@
 ---
 name: laravel-paddle-development
-description: Development guidance for `protonemedia/laravel-paddle` (Provides a Paddle.com integration for Laravel.).
+description: Development guidance for protonemedia/laravel-paddle. Provides a Paddle.com integration for Laravel.
 license: MIT
 metadata:
   author: ProtoneMedia
@@ -10,7 +10,7 @@ metadata:
 # Laravel Paddle Development
 
 ## Overview
-Use this skill when changing package code, docs, tests, or release tooling for `protonemedia/laravel-paddle`.
+Use this skill when changing package code, docs, tests, or release tooling for protonemedia/laravel-paddle.
 
 ## When to Activate
 - You are modifying code in this repository.
@@ -19,8 +19,8 @@ Use this skill when changing package code, docs, tests, or release tooling for `
 
 ## Workflow
 1. Skim the README / docs to confirm the public contract.
-2. Read  for common patterns and pitfalls.
+2. Read references/laravel-paddle-guide.md for common patterns and pitfalls.
 3. Keep changes small, add/update tests when behavior changes, and avoid breaking API changes.
 
 ## References
-- 
+- references/laravel-paddle-guide.md
