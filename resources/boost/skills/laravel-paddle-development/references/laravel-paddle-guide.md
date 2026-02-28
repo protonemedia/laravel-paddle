@@ -1,10 +1,6 @@
 # Laravel Paddle Reference
 
-Complete reference for `protonemedia/laravel-paddle.`. Full documentation: https://github.com/protonemedia/laravel-paddle#readme
-
-Complete reference for `protonemedia/laravel-paddle` (Paddle.com API integration for Laravel).
-
-Primary docs: https://github.com/protonemedia/laravel-paddle#readme
+Complete reference for `protonemedia/laravel-paddle`. Full documentation: https://github.com/protonemedia/laravel-paddle#readme
 
 ## What this package provides
 
