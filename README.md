@@ -27,7 +27,7 @@ Only the master branch and version 2.0 of this package are compatible with Larav
 
 | Laravel Version | Package Version |
 | --------------- | --------------- |
-| 8.0-11.0        | 2.0             |
+| 8.0-13.0        | 2.0             |
 | 6.0-7.0         | 1.0             |
 
 You can install the package via composer:
